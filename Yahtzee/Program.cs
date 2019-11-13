@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Yahtzee
 {
-   class game
+       class game
     {
         public List<Die> playersDice = new List<Die>();
 
@@ -23,7 +23,22 @@ namespace Yahtzee
 
             }
         }
+
+        public string Input()
+        {
+            Console.Write("Choose: ");
+            for (int option = 0; option < playersDice.Count; option++)
+            {
+                Console.Write("{0} ", option);
+            }
+
+            Console.WriteLine("Choose Dice to re-roll");
+            string choice = Console.ReadLine();
+
+            return choice;
+        }
     }
+    
     class Program
     {
         static void Main(string[] args)
