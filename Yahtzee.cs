@@ -1,9 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Yahtzee
 {
@@ -11,33 +7,43 @@ namespace Yahtzee
     {
         public int Sides;
         public int SideDisplayed;
-        public List<Die> = new List<Die>();
+        public List<Die> dice = new List<Die>();
 
-        Random rnd = new Random();
-        public Die(int sides)
+        public Die()
         {
-            this.Sides = sides;
-            this.SideDisplayed = rnd.Next(1, sides);
+            Random rnd = new Random();
+            this.Sides = 6;
+            this.SideDisplayed = rnd.Next(1, 6);
         }
 
-        public Die(int Sides, int sideDisplayed)
+        public Die(int sideDisplayed)
         {
+
             this.SideDisplayed = sideDisplayed;
         }
 
-        public void Roll()
+        public List<Die> Dice(int count)
         {
-            this.SideDisplayed = rnd.Next(1, this.Sides);
+            for (int number = 1; number < count; number++)
+            {
+                Die die = new Die();
+                dice.Add(die);
+            }
+            return dice;
         }
-    
-
     }
+
     class Program
     {
         static void Main(string[] args)
         {
-            //Console.WriteLine();
-            //Console.ReadLine();
+            Die die = new Die();
+
+            List<Die> dice = die.Dice(6);
+
+            foreach (var pips in dice)
+                Console.WriteLine(pips.SideDisplayed);
+            Console.ReadLine();
 
         }
     }
