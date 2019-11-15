@@ -1,9 +1,14 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Yahtzee
 {
-       class game
+
+    class Game
     {
         public List<Die> playersDice = new List<Die>();
 
@@ -43,10 +48,10 @@ namespace Yahtzee
     {
         static void Main(string[] args)
         {
-
-            Console.WriteLine(game);
-            Console.ReadLine();
+            Game game = new Game();
+            game.Play();
 
         }
     }
 }
+
