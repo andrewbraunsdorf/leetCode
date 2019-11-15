@@ -43,10 +43,8 @@ namespace Yahtzee
     {
         static void Main(string[] args)
         {
-            // array of rolls
-            // list of dice
 
-            // Console.WriteLine();
+            Console.WriteLine(game);
             Console.ReadLine();
 
         }
