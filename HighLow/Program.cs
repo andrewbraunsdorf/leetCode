@@ -12,7 +12,7 @@ namespace HighLow
         {
 
             public int CardValue;
-            public int SuitValue;
+            public int CardSuit;
             public int RandomCardValue;
 
             public string[] Suits = { "Hearts", "Diamonds", "Clubs", "Spades" };
@@ -22,9 +22,9 @@ namespace HighLow
             {
                 Random newCard = new Random();
                 this.CardValue = newCard.Next(1, 14);
-                this.CardValue = newCard.Next(0, 4);
-                Console.WriteLine(CardValue);
-                Console.WriteLine(SuitValue);
+                this.CardSuit = newCard.Next(0, 4);
+                Console.WriteLine("Card: {0}", CardValue);
+                Console.WriteLine("Suit: {0}", CardSuit);
             }
 
             public Card(int RandomCardValue)
@@ -35,12 +35,36 @@ namespace HighLow
                 Console.WriteLine("RandomCardValue: {0}", RandomCardValue);
             }
 
-            public Card(int CardValue, int SuitValue)
+            public Card(int CardValue, int CardSuit)
             {
                 this.CardValue = CardValue;
-                this.SuitValue = SuitValue;
+                this.CardSuit = CardSuit;
 
             }
+        }
+
+        public class Game
+        {
+            public void PlayGame()
+            {
+                var startingCard = new Card();
+                var nextCard = new Card();
+
+                int guesses = 0;
+
+
+                Console.WriteLine("Starting Card: {0}", startingCard);
+                Console.WriteLine("Next Card: {0}", nextCard);
+
+                Console.WriteLine("{0} {1}", startingCard.CardValue, startingCard.CardSuit);
+            }
+
+            //public Card DrawCard()
+            //{
+            //    Card startingCard = new Card();
+            //    Console.WriteLine("Starting Card: {0}", startingCard);
+            //    return startingCard;
+            //}
         }
 
         static void Main(string[] args)
@@ -48,6 +72,7 @@ namespace HighLow
 
             var card = new Card();
             var cards = new Card(10);
+            var game = new Game();
 
             Console.ReadLine();
         }
